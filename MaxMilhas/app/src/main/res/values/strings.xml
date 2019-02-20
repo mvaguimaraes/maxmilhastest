@@ -7,4 +7,10 @@
     <string name="sort">Ordenar</string>
     <string name="buy">Comprar</string>
     <string name="total_price_text">Valor total c/ taxas</string>
+    <string name="stops"> paradas</string>
+    <string name="stop"> parada</string>
+    <string name="currency">R$ </string>
+    <string name="not_available">Indisponível</string>
+    <string name="minutes">min</string>
+    <string name="h">h</string>
 </resources>
