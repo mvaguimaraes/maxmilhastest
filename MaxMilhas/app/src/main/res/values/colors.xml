@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2D8ABD</color>
+    <color name="colorPrimaryDark">#2D8ABD</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#c8e8ff</color>
+    <color name="topaz">#1ABC9C</color>
+    <color name="background">#E7EDF3</color>
+    <color name="tab_not_selected_bg">#F6F6F6</color>
+    <color name="tab_selected_text_color">#879395</color>
+    <color name="tab_not_selected_text_color">#D8DCDE</color>
+    <color name="filter_font_color">#879395</color>
+</resources>

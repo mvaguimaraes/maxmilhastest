@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MaxMilhas</string>
+    <string name="outbound_flights">Voo de ida</string>
+    <string name="inbound_flights">Voo de volta</string>
+    <string name="flights">Voos</string>
+    <string name="filter">Filtrar</string>
+    <string name="sort">Ordenar</string>
+    <string name="buy">Comprar</string>
+    <string name="total_price_text">Valor total c/ taxas</string>
+</resources>

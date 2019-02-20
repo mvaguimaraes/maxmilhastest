@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="Fragments.OutboundFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding"
+        android:paddingLeft="@dimen/padding">
+
+    <TextView
+        android:id="@+id/with_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Com filtro: "
+        android:textSize="@dimen/font_large"
+        android:textColor="@color/filter_font_color"/>
+
+    <TextView
+        android:id="@+id/filter_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="578"
+        android:layout_toRightOf="@+id/with_filter"
+        android:textStyle="bold"
+        android:textSize="@dimen/font_large"
+        android:textColor="@color/filter_font_color"/>
+
+    <TextView
+        android:id="@+id/filter_flights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" voos"
+        android:layout_toRightOf="@id/filter_results"
+        android:textSize="@dimen/font_large"
+        android:textColor="@color/filter_font_color"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/outbound_flights"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_alignParentBottom="true">
+        <RelativeLayout
+            android:id="@+id/filter_layout"
+            android:layout_width="@dimen/zero"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@color/topaz">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+            <ImageView
+                android:id="@+id/filter_icon"
+                android:layout_width="@dimen/icon_dimen"
+                android:layout_height="@dimen/icon_dimen"
+                android:src="@drawable/ic_filter"
+                android:paddingTop="@dimen/icon_padding2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter"
+                android:textColor="@color/textColorPrimary"
+                android:layout_toRightOf="@+id/filter_icon"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_medium"
+                android:paddingLeft="@dimen/icon_padding"/>
+            </RelativeLayout>
+        </RelativeLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/textColorPrimary" />
+        <RelativeLayout
+            android:id="@+id/sort_layout"
+            android:layout_width="@dimen/zero"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@color/topaz">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <ImageView
+                    android:id="@+id/sort_icon"
+                    android:layout_width="@dimen/icon_dimen"
+                    android:layout_height="@dimen/icon_dimen"
+                    android:src="@drawable/ic_sort_by_attributes_interface_button_option"
+                    android:paddingTop="@dimen/icon_padding2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sort"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_toRightOf="@+id/sort_icon"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font_medium"
+                    android:paddingLeft="@dimen/icon_padding"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
