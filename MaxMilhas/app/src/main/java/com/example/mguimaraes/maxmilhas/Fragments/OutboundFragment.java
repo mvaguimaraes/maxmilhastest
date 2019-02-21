@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.mguimaraes.maxmilhas.Adapters.FlightsAdapter;
@@ -26,6 +27,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,6 +44,10 @@ public class OutboundFragment extends Fragment {
     TextView filterFlights;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+    @BindView(R.id.sort_layout)
+    RelativeLayout sortLayout;
+    @BindView(R.id.filter_layout)
+    RelativeLayout filterLayout;
     private Flights flights = new Flights(null, null);
     private ArrayList<SingleFlight> filteredFlights = new ArrayList<>();
     private FlightsAdapter mAdapter;
@@ -115,6 +121,16 @@ public class OutboundFragment extends Fragment {
     private void initiateAdapter(ArrayList<SingleFlight> list) {
         mAdapter = new FlightsAdapter(flights.sort(flights.getOutboundFlights()));
         recyclerView.setAdapter(mAdapter);
+    }
+
+    @OnClick(R.id.sort_layout)
+    public void OnClickSort() {
+
+    }
+
+    @OnClick(R.id.filter_layout)
+    public void OnClickFilter() {
+
     }
 
 }

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_filter"
+        android:paddingRight="@dimen/padding_filter">
+
+        <TextView
+            android:id="@+id/sort_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sort"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_icordenar"
+            android:textSize="@dimen/font_huge"
+            android:paddingTop="@dimen/padding_top_filter"
+            android:drawablePadding="@dimen/padding_drawable_filter"
+            android:paddingBottom="@dimen/padding_top_filter"
+            android:layout_below="@+id/horizontal_line"/>
+
+        <RelativeLayout
+            android:id="@+id/sort_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sort_title"
+            android:paddingBottom="@dimen/padding_top_filter">
+            <LinearLayout
+                android:id="@+id/greatest_price_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/padding_filter">
+                <RadioButton
+                    android:id="@+id/greatest_price_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/topaz"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/greatest_price"
+                    android:paddingRight="@dimen/icon_padding2"/>
+                <TextView
+                    android:id="@+id/greatest_price_qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/cheapest_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/padding_filter"
+                android:layout_below="@+id/greatest_price_layout">
+                <RadioButton
+                    android:id="@+id/cheapest_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/topaz"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cheapest_price"
+                    android:paddingRight="@dimen/icon_padding2"/>
+                <TextView
+                    android:id="@+id/cheapest_qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cheapest_shortest_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/padding_filter"
+                android:layout_below="@+id/cheapest_layout">
+                <RadioButton
+                    android:id="@+id/cheapest_shortest_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/topaz"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cheapest_price_shortest_duration"
+                    android:paddingRight="@dimen/icon_padding2"/>
+                <TextView
+                    android:id="@+id/cheapest_shortest_qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/apply_sorting_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/topaz"
+            android:textColor="@color/textColorPrimary"
+            android:text="@string/apply_sorting"
+            android:layout_below="@+id/sort_layout"
+            android:textAllCaps="false"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -16,4 +16,21 @@
     <string name="not_available">Indisponível</string>
     <string name="minutes">min</string>
     <string name="h">h</string>
+    <string name="filter_by_time">Filtrar por Horário</string>
+    <string name="filter_by_stops">Filtrar por Paradas</string>
+    <string name="morning">MANHÃ</string>
+    <string name="morning_timeslot"> - 06:00 às 11:59</string>
+    <string name="afternoon">TARDE</string>
+    <string name="afternoon_timeslot"> - 12:00 às 17:59</string>
+    <string name="evening">NOITE</string>
+    <string name="evening_timeslot"> - 18:00 às 23:59</string>
+    <string name="late_night">MADRUGADA</string>
+    <string name="late_night_timeslot"> - 00:00 às 05:59</string>
+    <string name="straight_flight">VOO DIRETO</string>
+    <string name="one_stop_flight">1 PARADA</string>
+    <string name="apply_filter">Aplicar filtro</string>
+    <string name="greatest_price">Maior preço</string>
+    <string name="cheapest_price">Menor preço</string>
+    <string name="cheapest_price_shortest_duration">Menor preço e Menor tempo de voo</string>
+    <string name="apply_sorting">Aplicar ordenação</string>
 </resources>

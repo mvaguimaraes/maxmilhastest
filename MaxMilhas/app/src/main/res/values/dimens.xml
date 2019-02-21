@@ -22,4 +22,7 @@
     <dimen name="row_height">100dp</dimen>
     <dimen name="row_spacing">8dp</dimen>
     <dimen name="vertical_line_height">68dp</dimen>
+    <dimen name="padding_top_filter">17dp</dimen>
+    <dimen name="padding_filter">43dp</dimen>
+    <dimen name="padding_drawable_filter">11dp</dimen>
 </resources>
