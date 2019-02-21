@@ -1,16 +1,11 @@
 package com.example.mguimaraes.maxmilhas.Adapters;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.mguimaraes.maxmilhas.Fragments.InboundFragment;
-import com.example.mguimaraes.maxmilhas.Fragments.OutboundFragment;
 import com.example.mguimaraes.maxmilhas.Models.SingleFlight;
 import com.example.mguimaraes.maxmilhas.R;
 
@@ -82,7 +77,7 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightsAdapter.MyViewHo
         holder.destinationAirport.setText(flight.getTo());
 
         if (flight.getPricing().getOta() != null) {
-            holder.price.setText("R$ " + flight.getPricing().getOta().getSaleTotal());
+            holder.price.setText(String.valueOf(flight.getPricing().getOta().getSaleTotal()));
             holder.currency.setVisibility(View.VISIBLE);
         } else {
             holder.price.setText(R.string.not_available);

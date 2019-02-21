@@ -51,7 +51,7 @@
                 android:background="#c0c0c0"
                 android:layout_toRightOf="@+id/time_departure"
                 android:layout_below="@+id/origin_airport"
-                android:layout_marginTop="@dimen/horizontal_line_width"
+                android:layout_marginTop="@dimen/tab_padding_bottom"
                 android:layout_marginLeft="@dimen/two_dp"
                 android:layout_marginRight="@dimen/two_dp"/>
 
@@ -88,8 +88,9 @@
 
         <View
             android:layout_width="1dp"
-            android:layout_height="fill_parent"
-            android:background="@color/background" />
+            android:layout_height="@dimen/vertical_line_height"
+            android:background="@color/background"
+            android:layout_gravity="center"/>
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -104,6 +105,7 @@
                 android:layout_marginBottom="2dp"
                 android:layout_toLeftOf="@+id/price"
                 android:paddingTop="@dimen/padding"
+                android:textStyle="bold"
                 android:text="R$ " />
 
             <TextView

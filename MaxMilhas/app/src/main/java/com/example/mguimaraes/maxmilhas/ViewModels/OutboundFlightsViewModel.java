@@ -1,6 +1,7 @@
 package com.example.mguimaraes.maxmilhas.ViewModels;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.example.mguimaraes.maxmilhas.Models.Flights;
@@ -21,10 +22,11 @@ public class OutboundFlightsViewModel extends ViewModel {
     public OutboundFlightsViewModel(){}
 
     public void init() {
-        if (this.flights != null) {
-            return;
+        flights = new MutableLiveData<>();
+
+        if (flightsRepo != null) {
+            flights = flightsRepo.getFlights();
         }
-        flights = flightsRepo.getFlights();
     }
 
     public LiveData<Flights> getFlights() {

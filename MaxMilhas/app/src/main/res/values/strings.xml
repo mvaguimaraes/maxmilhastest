@@ -3,6 +3,9 @@
     <string name="outbound_flights">Voo de ida</string>
     <string name="inbound_flights">Voo de volta</string>
     <string name="flights">Voos</string>
+    <string name="flight">Voo</string>
+    <string name="flights_lc">voos</string>
+    <string name="flight_lc">voo</string>
     <string name="filter">Filtrar</string>
     <string name="sort">Ordenar</string>
     <string name="buy">Comprar</string>

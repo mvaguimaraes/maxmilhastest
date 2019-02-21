@@ -1,6 +1,6 @@
 package com.example.mguimaraes.maxmilhas.Fragments;
 
-import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,20 +22,28 @@ import com.example.mguimaraes.maxmilhas.ViewModels.OutboundFlightsViewModel;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class OutboundFragment extends Fragment {
 
+    @Inject
+    ViewModelProvider.Factory viewModelFactory;
+
     private OutboundFlightsViewModel viewModel;
     @BindView(R.id.filter_results)
     TextView filterResults;
+    @BindView(R.id.filter_flights)
+    TextView filterFlights;
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
     private Flights flights = new Flights(null, null);
     private ArrayList<SingleFlight> filteredFlights = new ArrayList<>();
-    //@BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
     private FlightsAdapter mAdapter;
 
     public OutboundFragment() {
@@ -46,11 +54,12 @@ public class OutboundFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        /*viewModel = ViewModelProviders.of(this).get(OutboundFlightsViewModel.class);
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(OutboundFlightsViewModel.class);
         viewModel.init();
         viewModel.getFlights().observe(this, flights -> {
             // Update UI.
-        });*/
+                System.out.println("Rinoceronte: " + flights.getOutboundFlights().size());
+        });
     }
 
     @Override
@@ -63,10 +72,10 @@ public class OutboundFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_outbound, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        ButterKnife.setDebug(true);
+        ButterKnife.bind(this, view);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-        //return inflater.inflate(R.layout.fragment_outbound, container, false);
         getFlights();
         return view;
     }
@@ -81,8 +90,8 @@ public class OutboundFragment extends Fragment {
             public void onResponse(Call<Flights>call, Response<Flights> response) {
                 flights = response.body();
                 filteredFlights = flights.getOutboundFlights();
-                mAdapter = new FlightsAdapter(flights.sort(flights.getOutboundFlights()));
-                recyclerView.setAdapter(mAdapter);
+                setFilterTexts(filteredFlights.size());
+                initiateAdapter(filteredFlights);
 
             }
 
@@ -91,6 +100,21 @@ public class OutboundFragment extends Fragment {
                 // Log error here since request failed
             }
         });
+    }
+
+    private void setFilterTexts(int qty) {
+        if (qty == 1) {
+            filterResults.setText(String.valueOf(filteredFlights.size()));
+            filterFlights.setText(" " + getResources().getString(R.string.flight_lc));
+        } else {
+            filterResults.setText(String.valueOf(filteredFlights.size()));
+            filterFlights.setText(" " + getResources().getString(R.string.flights_lc));
+        }
+    }
+
+    private void initiateAdapter(ArrayList<SingleFlight> list) {
+        mAdapter = new FlightsAdapter(flights.sort(flights.getOutboundFlights()));
+        recyclerView.setAdapter(mAdapter);
     }
 
 }
