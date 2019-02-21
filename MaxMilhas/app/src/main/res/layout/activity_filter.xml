@@ -145,7 +145,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/one_dp"
             android:background="#c0c0c0"
-            android:layout_toRightOf="@+id/time_departure"
             android:layout_below="@+id/filter_time_layout"
             android:layout_marginTop="@dimen/tab_padding_bottom"
             android:layout_marginLeft="@dimen/two_dp"

@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="Fragments.OutboundFragment">
+    tools:context="Fragments.InboundFragment">
 
     <RelativeLayout
+        android:id="@+id/filter_results_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/padding"
@@ -23,7 +24,6 @@
             android:id="@+id/filter_results"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="578"
             android:layout_toRightOf="@+id/with_filter"
             android:textStyle="bold"
             android:textSize="@dimen/font_large"
@@ -33,20 +33,21 @@
             android:id="@+id/filter_flights"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" voos"
             android:layout_toRightOf="@id/filter_results"
             android:textSize="@dimen/font_large"
             android:textColor="@color/filter_font_color"/>
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/inbound_flights"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/filter_results_layout"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:paddingTop="@dimen/padding"
+        android:background="@color/background"/>
 
     <LinearLayout
         android:layout_width="match_parent"
