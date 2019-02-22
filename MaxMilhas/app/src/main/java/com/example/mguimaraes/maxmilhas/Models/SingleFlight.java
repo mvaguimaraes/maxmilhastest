@@ -64,6 +64,9 @@ public class SingleFlight implements Serializable {
         this.to = to;
     }
 
+    public SingleFlight() {
+    }
+
     public SingleFlight(Pricing pricing) {
         this.pricing = pricing;
     }

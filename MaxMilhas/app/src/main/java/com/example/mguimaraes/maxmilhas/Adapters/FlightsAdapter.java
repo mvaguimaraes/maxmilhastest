@@ -62,9 +62,11 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightsAdapter.MyViewHo
         final SingleFlight flight = flights.get(position);
 
         if (flight.getTrips().size() == 1) {
-            holder.numberStops.setText(String.valueOf(flight.getTrips().size()-1) + " paradas");
-        } else {
+            holder.numberStops.setText(" voo direto");
+        } else if (flight.getTrips().size() == 2) {
             holder.numberStops.setText(String.valueOf(flight.getTrips().size()-1) + " parada");
+        } else {
+            holder.numberStops.setText(String.valueOf(flight.getTrips().size()-1) + " paradas");
         }
 
         if (flight.getDepartureDate().getMinutes() == 0) {

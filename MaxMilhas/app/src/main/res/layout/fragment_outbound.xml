@@ -12,42 +12,94 @@
         android:paddingTop="@dimen/padding"
         android:paddingLeft="@dimen/padding">
 
-    <TextView
-        android:id="@+id/with_filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Com filtro: "
-        android:textSize="@dimen/font_large"
-        android:textColor="@color/filter_font_color"/>
+        <TextView
+            android:id="@+id/with_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Com filtro: "
+            android:textSize="@dimen/font_large"
+            android:textColor="@color/filter_font_color"/>
 
-    <TextView
-        android:id="@+id/filter_results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/with_filter"
-        android:textStyle="bold"
-        android:textSize="@dimen/font_large"
-        android:textColor="@color/filter_font_color"/>
+        <TextView
+            android:id="@+id/filter_results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/with_filter"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_large"
+            android:textColor="@color/filter_font_color"/>
 
-    <TextView
-        android:id="@+id/filter_flights"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/filter_results"
-        android:textSize="@dimen/font_large"
-        android:textColor="@color/filter_font_color"/>
+        <TextView
+            android:id="@+id/filter_flights"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/filter_results"
+            android:textSize="@dimen/font_large"
+            android:textColor="@color/filter_font_color"/>
 
     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/emptyView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/box"
+            android:layout_width="@dimen/card_cover_height"
+            android:layout_height="@dimen/card_cover_height"
+            android:src="@drawable/ic_box"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nothing_found"
+            android:textColor="@color/box_empty"
+            android:layout_below="@+id/box"
+            android:textSize="@dimen/font_huge_plus"
+            android:gravity="center"/>
+    </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <RelativeLayout
+        android:id="@+id/no_internet_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/no_internet"
+            android:layout_width="@dimen/card_cover_height"
+            android:layout_height="@dimen/card_cover_height"
+            android:src="@drawable/ic_wifi"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_connection"
+            android:textColor="@color/box_empty"
+            android:layout_below="@+id/no_internet"
+            android:textSize="@dimen/font_huge_plus"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/filter_results_layout"
-        android:clipToPadding="false"
-        android:scrollbars="vertical"
-        android:paddingTop="@dimen/padding"
-        android:background="@color/background"/>
+        android:paddingBottom="@dimen/button_height">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            android:paddingTop="@dimen/padding"
+            android:background="@color/background"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,22 +117,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
-            <ImageView
-                android:id="@+id/filter_icon"
-                android:layout_width="@dimen/icon_dimen"
-                android:layout_height="@dimen/icon_dimen"
-                android:src="@drawable/ic_filter"
-                android:paddingTop="@dimen/icon_padding2"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/filter"
-                android:textColor="@color/textColorPrimary"
-                android:layout_toRightOf="@+id/filter_icon"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textSize="@dimen/font_medium"
-                android:paddingLeft="@dimen/icon_padding"/>
+                <ImageView
+                    android:id="@+id/filter_icon"
+                    android:layout_width="@dimen/icon_dimen"
+                    android:layout_height="@dimen/icon_dimen"
+                    android:src="@drawable/ic_filter"
+                    android:paddingTop="@dimen/icon_padding2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_toRightOf="@+id/filter_icon"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font_medium"
+                    android:paddingLeft="@dimen/icon_padding"/>
             </RelativeLayout>
         </RelativeLayout>
         <View

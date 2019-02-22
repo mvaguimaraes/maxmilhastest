@@ -62,13 +62,12 @@
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/myRadioGroup"
-                android:checkedButton="@+id/sound" >
+                android:id="@+id/myRadioGroup">
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sound"
+                    android:id="@+id/greatestPrice"
                     android:text="@string/greatest_price"
                     android:buttonTint="@color/topaz"
                     android:textColor="@color/text_color_dark"/>
@@ -76,7 +75,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/vibration"
+                    android:id="@+id/cheapest"
                     android:text="@string/cheapest_price"
                     android:buttonTint="@color/topaz"
                     android:textColor="@color/text_color_dark"/>
@@ -84,7 +83,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/silent"
+                    android:id="@+id/cheapestShortest"
                     android:text="@string/cheapest_price_shortest_duration"
                     android:buttonTint="@color/topaz"
                     android:textColor="@color/text_color_dark"/>

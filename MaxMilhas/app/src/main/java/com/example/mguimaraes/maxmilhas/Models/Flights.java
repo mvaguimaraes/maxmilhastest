@@ -108,30 +108,81 @@ public class Flights implements Serializable {
         }
     }
 
-    public ArrayList<SingleFlight> filterFlights(ArrayList<SingleFlight> list, Boolean check0, Boolean check1, Boolean check2, int min, int max) {
+    public ArrayList<SingleFlight> filterFlights(ArrayList<SingleFlight> list, Boolean straight, Boolean oneStop, Boolean morning, Boolean afternoon, Boolean evening, Boolean lateNight) {
 
         if (list != null) {
             ArrayList<SingleFlight> result = new ArrayList<>();
 
             for (int i = 0; i < list.size(); i++) {
-                if (!check0) {
+
+                if (straight) {
+                    if (list.get(i).getTrips().size() == 1) {
+                        result.add(list.get(i));
+                        continue;
+                    }
+                }
+                if (oneStop) {
+                    if (list.get(i).getTrips().size() == 2) {
+                        result.add(list.get(i));
+                        continue;
+                    }
+                }
+                if (morning) {
+                    if (6 <= list.get(i).getDepartureDate().getHours() && 12 > list.get(i).getDepartureDate().getHours()) {
+                        result.add(list.get(i));
+                        continue;
+                    }
+                }
+                if (afternoon) {
+                    if (12 <= list.get(i).getDepartureDate().getHours() && 18 > list.get(i).getDepartureDate().getHours()) {
+                        result.add(list.get(i));
+                        continue;
+                    }
+                }
+                if (evening) {
+                    if (18 <= list.get(i).getDepartureDate().getHours() && 23 >= list.get(i).getDepartureDate().getHours()) {
+                        result.add(list.get(i));
+                        continue;
+                    }
+                }
+                if (lateNight) {
+                    if (0 <= list.get(i).getDepartureDate().getHours() && 6 > list.get(i).getDepartureDate().getHours()) {
+                        result.add(list.get(i));
+                        continue;
+                    }
+                }
+                /*
+                if (!straight) {
                     if (list.get(i).getTrips().size() == 1) {
                         continue;
                     }
                 }
-                if (!check1) {
+                if (!oneStop) {
                     if (list.get(i).getTrips().size() == 2) {
                         continue;
                     }
                 }
-                if (!check2) {
-                    if (list.get(i).getTrips().size() > 2) {
+                if (!morning) {
+                    if (6 <= list.get(i).getDepartureDate().getHours() && 12 > list.get(i).getDepartureDate().getHours()) {
                         continue;
                     }
                 }
-                if (min <= list.get(i).getDepartureDate().getHours() && max >= list.get(i).getDepartureDate().getHours()) {
-                    result.add(list.get(i));
+                if (!afternoon) {
+                    if (12 <= list.get(i).getDepartureDate().getHours() && 18 > list.get(i).getDepartureDate().getHours()) {
+                        continue;
+                    }
                 }
+                if (!evening) {
+                    if (18 <= list.get(i).getDepartureDate().getHours() && 23 >= list.get(i).getDepartureDate().getHours()) {
+                        continue;
+                    }
+                }
+                if (!check5) {
+                    if (0 <= list.get(i).getDepartureDate().getHours() && 6 > list.get(i).getDepartureDate().getHours()) {
+                        continue;
+                    }
+                }
+                result.add(list.get(i));*/
             }
 
             return result;
@@ -139,4 +190,5 @@ public class Flights implements Serializable {
             return null;
         }
     }
+
 }

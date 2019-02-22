@@ -38,4 +38,7 @@
     <string name="filters">FILTROS</string>
     <string name="sorting">ORDENAÇÃO</string>
     <string name="clean">LIMPAR</string>
+    <string name="nothing_found">Oops... Nenhum \n resultado encontrado</string>
+    <string name="progress_dialog_loading">Carregando...</string>
+    <string name="no_connection">Oops... Sem conexão\n a internet</string>
 </resources>

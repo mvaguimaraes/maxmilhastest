@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mguimaraes.maxmilhas.Fragments.InboundFragment;
 import com.example.mguimaraes.maxmilhas.Fragments.OutboundFragment;
 import com.example.mguimaraes.maxmilhas.R;
 
@@ -33,6 +34,18 @@ public class FilterActivity extends AppCompatActivity {
     CheckBox oneStopCheck;
     @BindView(R.id.apply_filter_button)
     Button applyFilters;
+    @BindView(R.id.morning_qty)
+    TextView morningQty;
+    @BindView(R.id.afternoon_qty)
+    TextView afternoonQty;
+    @BindView(R.id.evening_qty)
+    TextView eveningQty;
+    @BindView(R.id.late_night_qty)
+    TextView lateNightQty;
+    @BindView(R.id.straight_flight_qty)
+    TextView straightFlightQty;
+    @BindView(R.id.one_stop_qty)
+    TextView oneStopQty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +71,7 @@ public class FilterActivity extends AppCompatActivity {
             }
         });
 
-        morningCheck.setChecked(Boolean.parseBoolean(OutboundFragment.morningCheck));
-        afternoonCheck.setChecked(Boolean.parseBoolean(OutboundFragment.afternoonCheck));
-        eveningCheck.setChecked(Boolean.parseBoolean(OutboundFragment.eveningCheck));
-        lateNightCheck.setChecked(Boolean.parseBoolean(OutboundFragment.lateNightCheck));
-        straightFlightCheck.setChecked(Boolean.parseBoolean(OutboundFragment.straightFlightCheck));
-        oneStopCheck.setChecked(Boolean.parseBoolean(OutboundFragment.oneStopCheck));
+        setUpLayout();
     }
 
     @OnClick(R.id.apply_filter_button)
@@ -87,6 +95,42 @@ public class FilterActivity extends AppCompatActivity {
 
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    private void setUpLayout() {
+        if (OutboundFragment.comingFromHere != null) {
+            if (OutboundFragment.comingFromHere) {
+                morningCheck.setChecked(Boolean.parseBoolean(OutboundFragment.morningCheck));
+                afternoonCheck.setChecked(Boolean.parseBoolean(OutboundFragment.afternoonCheck));
+                eveningCheck.setChecked(Boolean.parseBoolean(OutboundFragment.eveningCheck));
+                lateNightCheck.setChecked(Boolean.parseBoolean(OutboundFragment.lateNightCheck));
+                straightFlightCheck.setChecked(Boolean.parseBoolean(OutboundFragment.straightFlightCheck));
+                oneStopCheck.setChecked(Boolean.parseBoolean(OutboundFragment.oneStopCheck));
+                morningQty.setText(OutboundFragment.qtMorning == 1 ? " (" + Integer.toString(OutboundFragment.qtMorning) + " VOO)" : "(" + Integer.toString(OutboundFragment.qtMorning) + " VOOS)");
+                afternoonQty.setText(OutboundFragment.qtAfternoon == 1 ? " (" + Integer.toString(OutboundFragment.qtAfternoon) + " VOO)" : "(" + Integer.toString(OutboundFragment.qtAfternoon) + " VOOS)");
+                eveningQty.setText(OutboundFragment.qtEvening == 1 ? " (" + Integer.toString(OutboundFragment.qtEvening) + " VOO)" : "(" + Integer.toString(OutboundFragment.qtEvening) + " VOOS)");
+                lateNightQty.setText(OutboundFragment.qtLateNight == 1 ? " (" + Integer.toString(OutboundFragment.qtLateNight) + " VOO)" : "(" + Integer.toString(OutboundFragment.qtLateNight) + " VOOS)");
+                straightFlightQty.setText(OutboundFragment.qtStraight == 1 ? " (" + Integer.toString(OutboundFragment.qtStraight) + " VOO)" : "(" + Integer.toString(OutboundFragment.qtStraight) + " VOOS)");
+                oneStopQty.setText(OutboundFragment.qtOneStop == 1 ? " (" + Integer.toString(OutboundFragment.qtOneStop) + " VOO)" : "(" + Integer.toString(OutboundFragment.qtOneStop) + " VOOS)");
+
+            }
+        }
+        if (InboundFragment.comingFromHere != null) {
+            if (InboundFragment.comingFromHere) {
+                morningCheck.setChecked(Boolean.parseBoolean(InboundFragment.morningCheck));
+                afternoonCheck.setChecked(Boolean.parseBoolean(InboundFragment.afternoonCheck));
+                eveningCheck.setChecked(Boolean.parseBoolean(InboundFragment.eveningCheck));
+                lateNightCheck.setChecked(Boolean.parseBoolean(InboundFragment.lateNightCheck));
+                straightFlightCheck.setChecked(Boolean.parseBoolean(InboundFragment.straightFlightCheck));
+                oneStopCheck.setChecked(Boolean.parseBoolean(InboundFragment.oneStopCheck));
+                morningQty.setText(InboundFragment.qtMorning == 1 ? " (" + Integer.toString(InboundFragment.qtMorning) + " VOO)" : "(" + Integer.toString(InboundFragment.qtMorning) + " VOOS)");
+                afternoonQty.setText(InboundFragment.qtAfternoon == 1 ? " (" + Integer.toString(InboundFragment.qtAfternoon) + " VOO)" : "(" + Integer.toString(InboundFragment.qtAfternoon) + " VOOS)");
+                eveningQty.setText(InboundFragment.qtEvening == 1 ? " (" + Integer.toString(InboundFragment.qtEvening) + " VOO)" : "(" + Integer.toString(InboundFragment.qtEvening) + " VOOS)");
+                lateNightQty.setText(InboundFragment.qtLateNight == 1 ? " (" + Integer.toString(InboundFragment.qtLateNight) + " VOO)" : "(" + Integer.toString(InboundFragment.qtLateNight) + " VOOS)");
+                straightFlightQty.setText(InboundFragment.qtStraight == 1 ? " (" + Integer.toString(InboundFragment.qtStraight) + " VOO)" : "(" + Integer.toString(InboundFragment.qtStraight) + " VOOS)");
+                oneStopQty.setText(InboundFragment.qtOneStop == 1 ? " (" + Integer.toString(InboundFragment.qtOneStop) + " VOO)" : "(" + Integer.toString(InboundFragment.qtOneStop) + " VOOS)");
+            }
+        }
     }
 
 }

@@ -23,7 +23,9 @@
     <dimen name="row_spacing">8dp</dimen>
     <dimen name="vertical_line_height">68dp</dimen>
     <dimen name="padding_top_filter">17dp</dimen>
-    <dimen name="padding_filter">43dp</dimen>
+    <dimen name="padding_filter">25dp</dimen>
     <dimen name="padding_drawable_filter">11dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="card_cover_height">130dp</dimen>
+    <dimen name="font_huge_plus">25sp</dimen>
 </resources>

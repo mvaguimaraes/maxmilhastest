@@ -13,4 +13,5 @@
     <color name="tab_not_selected_text_color">#D8DCDE</color>
     <color name="filter_font_color">#879395</color>
     <color name="text_color_dark">#6d6d6d</color>
+    <color name="box_empty">#D1CDCD</color>
 </resources>
