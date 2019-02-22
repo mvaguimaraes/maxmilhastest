@@ -3,11 +3,52 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_left_arrow"
+            android:scaleX="0.80"
+            android:scaleY="0.80"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/filters"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_large"/>
+
+        <TextView
+            android:id="@+id/clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/clean"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:paddingRight="@dimen/icon_dimen"
+            android:textSize="@dimen/font_large"/>
+
+
+    </android.support.v7.widget.Toolbar>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/padding_filter"
-        android:paddingRight="@dimen/padding_filter">
+        android:paddingRight="@dimen/padding_filter"
+        android:paddingTop="@dimen/vertical_line_height">
 
     <TextView
         android:id="@+id/filter_time_title"
@@ -37,7 +78,9 @@
                 android:id="@+id/morning_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/topaz"/>
+                android:button="@drawable/checkbox"
+                android:scaleX="0.80"
+                android:scaleY="0.80"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,12 +103,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/padding_filter"
-            android:layout_below="@+id/morning_layout">
+            android:layout_below="@+id/morning_layout"
+            android:paddingTop="@dimen/icon_padding">
             <CheckBox
                 android:id="@+id/afternoon_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/topaz"/>
+                android:button="@drawable/checkbox"
+                android:scaleX="0.80"
+                android:scaleY="0.80"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,12 +134,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/padding_filter"
-            android:layout_below="@+id/afternoon_layout">
+            android:layout_below="@+id/afternoon_layout"
+            android:paddingTop="@dimen/icon_padding">
             <CheckBox
                 android:id="@+id/evening_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/topaz"/>
+                android:button="@drawable/checkbox"
+                android:scaleX="0.80"
+                android:scaleY="0.80"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,12 +165,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/padding_filter"
-            android:layout_below="@+id/evening_layout">
+            android:layout_below="@+id/evening_layout"
+            android:paddingTop="@dimen/icon_padding">
             <CheckBox
                 android:id="@+id/late_night_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/topaz"/>
+                android:button="@drawable/checkbox"
+                android:scaleX="0.80"
+                android:scaleY="0.80"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -180,7 +232,9 @@
                     android:id="@+id/straight_flight_check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/topaz"/>
+                    android:button="@drawable/checkbox"
+                    android:scaleX="0.80"
+                    android:scaleY="0.80"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,12 +253,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/padding_filter"
-                android:layout_below="@+id/straight_flight_layout">
+                android:layout_below="@+id/straight_flight_layout"
+                android:paddingTop="@dimen/icon_padding">
                 <CheckBox
                     android:id="@+id/one_stop_check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/topaz"/>
+                    android:button="@drawable/checkbox"
+                    android:scaleX="0.80"
+                    android:scaleY="0.80"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

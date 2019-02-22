@@ -2,6 +2,7 @@ package com.example.mguimaraes.maxmilhas.Fragments;
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,7 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.mguimaraes.maxmilhas.Activities.FilterActivity;
+import com.example.mguimaraes.maxmilhas.Activities.SortActivity;
 import com.example.mguimaraes.maxmilhas.Adapters.FlightsAdapter;
 import com.example.mguimaraes.maxmilhas.Models.Flights;
 import com.example.mguimaraes.maxmilhas.Models.SingleFlight;
@@ -32,7 +36,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.app.Activity.RESULT_OK;
+
 public class OutboundFragment extends Fragment {
+
+    public static final int REQUEST_CODE = 1;
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -51,6 +59,7 @@ public class OutboundFragment extends Fragment {
     private Flights flights = new Flights(null, null);
     private ArrayList<SingleFlight> filteredFlights = new ArrayList<>();
     private FlightsAdapter mAdapter;
+    public static String morningCheck = "false", afternoonCheck = "false", eveningCheck = "false", lateNightCheck = "false", straightFlightCheck = "false", oneStopCheck = "false", isClean = "false";
 
     public OutboundFragment() {
         // Required empty public constructor
@@ -125,11 +134,42 @@ public class OutboundFragment extends Fragment {
 
     @OnClick(R.id.sort_layout)
     public void OnClickSort() {
-
+        Intent myIntent = new Intent(getActivity(), SortActivity.class);
+        //startActivityForResult(myIntent , REQUEST_CODE);
+        getActivity().startActivity(myIntent);
     }
 
     @OnClick(R.id.filter_layout)
     public void OnClickFilter() {
+        Intent myIntent = new Intent(getActivity(), FilterActivity.class);
+        myIntent.putExtra("morning", String.valueOf(morningCheck));
+        myIntent.putExtra("afternoon", String.valueOf(afternoonCheck));
+        myIntent.putExtra("evening", String.valueOf(eveningCheck));
+        myIntent.putExtra("lateNight", String.valueOf(lateNightCheck));
+        myIntent.putExtra("straight", String.valueOf(straightFlightCheck));
+        myIntent.putExtra("oneStop", String.valueOf(oneStopCheck));
+        startActivityForResult(myIntent , REQUEST_CODE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        try {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == REQUEST_CODE  && resultCode  == RESULT_OK) {
+
+                morningCheck = data.getStringExtra("morning");
+                afternoonCheck = data.getStringExtra("afternoon");
+                eveningCheck = data.getStringExtra("evening");
+                lateNightCheck = data.getStringExtra("lateNight");
+                straightFlightCheck = data.getStringExtra("straight");
+                oneStopCheck = data.getStringExtra("oneStop");
+                isClean = data.getStringExtra("isClean");
+            }
+        } catch (Exception ex) {
+            Toast.makeText(getActivity(), ex.toString(),
+                    Toast.LENGTH_SHORT).show();
+        }
 
     }
 

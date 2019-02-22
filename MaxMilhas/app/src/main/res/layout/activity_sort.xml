@@ -3,11 +3,40 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@drawable/ic_left_arrow"
+            android:scaleX="0.80"
+            android:scaleY="0.80"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sorting"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_large"/>
+
+    </android.support.v7.widget.Toolbar>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/padding_filter"
-        android:paddingRight="@dimen/padding_filter">
+        android:paddingRight="@dimen/padding_filter"
+        android:paddingTop="@dimen/vertical_line_height">
 
         <TextView
             android:id="@+id/sort_title"
@@ -28,76 +57,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/sort_title"
-            android:paddingBottom="@dimen/padding_top_filter">
-            <LinearLayout
-                android:id="@+id/greatest_price_layout"
+            android:paddingBottom="@dimen/padding_top_filter"
+            android:paddingLeft="@dimen/padding_filter">
+            <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/padding_filter">
-                <RadioButton
-                    android:id="@+id/greatest_price_check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/topaz"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/greatest_price"
-                    android:paddingRight="@dimen/icon_padding2"/>
-                <TextView
-                    android:id="@+id/greatest_price_qty"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/cheapest_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/padding_filter"
-                android:layout_below="@+id/greatest_price_layout">
-                <RadioButton
-                    android:id="@+id/cheapest_check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/topaz"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/cheapest_price"
-                    android:paddingRight="@dimen/icon_padding2"/>
-                <TextView
-                    android:id="@+id/cheapest_qty"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""/>
-            </LinearLayout>
+                android:id="@+id/myRadioGroup"
+                android:checkedButton="@+id/sound" >
 
-            <LinearLayout
-                android:id="@+id/cheapest_shortest_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/padding_filter"
-                android:layout_below="@+id/cheapest_layout">
                 <RadioButton
-                    android:id="@+id/cheapest_shortest_check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/topaz"/>
-                <TextView
+                    android:id="@+id/sound"
+                    android:text="@string/greatest_price"
+                    android:buttonTint="@color/topaz"
+                    android:textColor="@color/text_color_dark"/>
+
+                <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/vibration"
+                    android:text="@string/cheapest_price"
+                    android:buttonTint="@color/topaz"
+                    android:textColor="@color/text_color_dark"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/silent"
                     android:text="@string/cheapest_price_shortest_duration"
-                    android:paddingRight="@dimen/icon_padding2"/>
-                <TextView
-                    android:id="@+id/cheapest_shortest_qty"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""/>
-            </LinearLayout>
+                    android:buttonTint="@color/topaz"
+                    android:textColor="@color/text_color_dark"/>
+
+            </RadioGroup>
 
         </RelativeLayout>
 

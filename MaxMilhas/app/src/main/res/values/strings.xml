@@ -33,4 +33,9 @@
     <string name="cheapest_price">Menor preço</string>
     <string name="cheapest_price_shortest_duration">Menor preço e Menor tempo de voo</string>
     <string name="apply_sorting">Aplicar ordenação</string>
+    <string name="title_activity_filter">FilterActivity</string>
+    <string name="title_activity_sort">SortActivity</string>
+    <string name="filters">FILTROS</string>
+    <string name="sorting">ORDENAÇÃO</string>
+    <string name="clean">LIMPAR</string>
 </resources>

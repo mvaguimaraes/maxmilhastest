@@ -1,9 +1,11 @@
 package com.example.mguimaraes.maxmilhas.Adapters;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.mguimaraes.maxmilhas.Models.SingleFlight;
@@ -24,6 +26,7 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightsAdapter.MyViewHo
         public TextView numberStops;
         public TextView price;
         public TextView currency;
+        public Button buyButton;
 
         public MyViewHolder(View view) {
             super(view);
@@ -35,6 +38,7 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightsAdapter.MyViewHo
             numberStops = (TextView) view.findViewById(R.id.number_stops);
             price = (TextView) view.findViewById(R.id.price);
             currency = (TextView) view.findViewById(R.id.currency);
+            buyButton = (Button) view.findViewById(R.id.buy_button);
         }
     }
 
@@ -57,7 +61,7 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightsAdapter.MyViewHo
 
         final SingleFlight flight = flights.get(position);
 
-        if (flight.getTrips().size() > 1) {
+        if (flight.getTrips().size() == 1) {
             holder.numberStops.setText(String.valueOf(flight.getTrips().size()-1) + " paradas");
         } else {
             holder.numberStops.setText(String.valueOf(flight.getTrips().size()-1) + " parada");
@@ -69,9 +73,9 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightsAdapter.MyViewHo
             holder.timeDeparture.setText(flight.getDepartureDate().getHours() + ":" + flight.getDepartureDate().getMinutes());
         }
         if (flight.getArrivalDate().getMinutes() == 0) {
-            holder.timeArrival.setText(flight.getDepartureDate().getHours() + ":00");
+            holder.timeArrival.setText(flight.getArrivalDate().getHours() + ":00");
         } else {
-            holder.timeArrival.setText(flight.getDepartureDate().getHours() + ":" + flight.getDepartureDate().getMinutes());
+            holder.timeArrival.setText(flight.getArrivalDate().getHours() + ":" + flight.getDepartureDate().getMinutes());
         }
         holder.originAirport.setText(flight.getFrom());
         holder.destinationAirport.setText(flight.getTo());
@@ -79,9 +83,13 @@ public class FlightsAdapter extends RecyclerView.Adapter<FlightsAdapter.MyViewHo
         if (flight.getPricing().getOta() != null) {
             holder.price.setText(String.valueOf(flight.getPricing().getOta().getSaleTotal()));
             holder.currency.setVisibility(View.VISIBLE);
+            holder.buyButton.setTextColor(Color.parseColor("#ffffff"));
+            holder.buyButton.setBackgroundColor(Color.parseColor("#1ABC9C"));
         } else {
             holder.price.setText(R.string.not_available);
             holder.currency.setVisibility(View.INVISIBLE);
+            holder.buyButton.setTextColor(Color.parseColor("#879395"));
+            holder.buyButton.setBackgroundColor(Color.parseColor("#D8DCDE"));
         }
         holder.duration.setText(getDuration(flight.getDuration()) + ", ");
 

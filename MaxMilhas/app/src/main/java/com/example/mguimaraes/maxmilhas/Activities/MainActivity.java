@@ -8,13 +8,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.example.mguimaraes.maxmilhas.Fragments.InboundFragment;
+import com.example.mguimaraes.maxmilhas.Fragments.OutboundFragment;
+import com.example.mguimaraes.maxmilhas.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.mguimaraes.maxmilhas.R;
-import com.example.mguimaraes.maxmilhas.Fragments.OutboundFragment;
-import com.example.mguimaraes.maxmilhas.Fragments.InboundFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +29,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_top);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ImageView backButton = (ImageView) toolbar.findViewById(R.id.back_arrow);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
